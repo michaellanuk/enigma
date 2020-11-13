@@ -62,10 +62,19 @@ int Rotor::new_rotor(string rotors_config_file, Rotor** rotor) {
     return NO_ERROR;
 }
 
-int Rotor::map_forwards(int letter, int &rotor_ticks) {
+int Rotor::map_forwards(int letter, int rotor_ticks) {
     int mapped = (mappings[(letter + rotor_ticks) % 26] + 26 - rotor_ticks) % 26;
 
     return mapped;
+}
+
+int Rotor::map_backwards(int letter, int rotor_ticks) {
+    for (int i = 0; i < mappings.size(); i++) {
+        if (mappings[i] == (letter + rotor_ticks) % 26) {
+            return (i - rotor_ticks + 26) % 26;
+        }
+    }
+    return 0;
 }
 
 int main() {}
