@@ -6,13 +6,16 @@ using namespace std;
 
 class Rotor {
     private:
-        vector<int> rotor_start_pos;
+        int notch_pos;
+        int starting_pos;
         vector<int> mappings;
         int rotor_ticks = 0;
 
     public:
-        Rotor(vector<int> mappings, vector<int> rotor_start_pos);
-        int new_rotor(string rotors_config_file, Rotor** rotor);
+        Rotor* next;
+
+        Rotor(vector<int> mappings, int notch_pos, int starting_pos);
+        int new_rotor(string rotors_config_file, int starting_pos, Rotor** rotor);
         int map_forwards(int letter, int rotor_ticks);
         int map_backwards(int letter, int rotor_ticks);
 };
