@@ -11,7 +11,7 @@ int main(int argc, char** argv) {
     Enigma* enigma = nullptr;
     string message, message_wo_ws;
     int code = NO_ERROR;
-    
+
     int code = enigma->create_enigma_machine(argc, argv, &enigma);
     if (code) {
         return code;
@@ -27,6 +27,11 @@ int main(int argc, char** argv) {
     }
 
     code = enigma->encrypt_input_message(message_wo_ws);
+    if (code) {
+        delete enigma;
+        return code;
+    }
 
+    delete enigma;
     return code;
 }
