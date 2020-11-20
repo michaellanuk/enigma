@@ -10,12 +10,17 @@
 int main(int argc, char** argv) {
     Enigma* enigma = nullptr;
     string message, message_wo_ws;
-
+    int code = NO_ERROR;
+    
     int code = enigma->create_enigma_machine(argc, argv, &enigma);
+    if (code) {
+        return code;
+    }
+
     cout << "Enter message:" << endl;
     getline(cin, message);
 
-    for (int i = 0; i < message.length(); i++) {
+    for (long unsigned int i = 0; i < message.length(); i++) {
         if (message[i] != ASCII_SPACE) {
             message_wo_ws += message[i];
         }
