@@ -12,7 +12,7 @@ int main(int argc, char** argv) {
     string message, message_wo_ws;
     int code = NO_ERROR;
 
-    int code = enigma->create_enigma_machine(argc, argv, &enigma);
+    code = enigma->create_enigma_machine(argc, argv, &enigma);
     if (code) {
         return code;
     }
