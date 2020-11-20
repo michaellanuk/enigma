@@ -23,7 +23,7 @@ int Plugboard::new_plugboard(string plugboard_config_file, Plugboard** plugboard
     }
 
     while (!input.eof()) {       
-        input >> num;
+        input >> num >> ws;
         
         if (input.fail()) {
             cerr << "Non-numeric character encountered in plugboard file" << endl;
@@ -57,7 +57,7 @@ int Plugboard::new_plugboard(string plugboard_config_file, Plugboard** plugboard
     *plugboard = new Plugboard(indexes);
     
     input.close();
-    
+
     return NO_ERROR;
 }
 
