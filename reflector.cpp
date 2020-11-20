@@ -23,7 +23,7 @@ int Reflector::new_reflector(string reflector_config_file, Reflector** reflector
     }
 
     while (!input.eof()) {       
-        input >> num;
+        input >> num >> ws;
         
         if (input.fail()) {
             cerr << "Non-numeric character encountered in reflector file" << endl;
