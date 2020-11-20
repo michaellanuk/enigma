@@ -22,4 +22,6 @@ int main(int argc, char** argv) {
     }
 
     code = enigma->encrypt_input_message(message_wo_ws);
+
+    return code;
 }
