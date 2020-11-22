@@ -19,7 +19,6 @@ Enigma::~Enigma() {
     delete plugboard;
     delete reflector;
     for (int i = 0; i < created_rotors.size(); i++) {
-        delete created_rotors[i]->prev;
         delete created_rotors[i];
     }
 }
@@ -73,6 +72,10 @@ int Enigma::create_enigma_machine(int argc, char** argv, Enigma** enigma) {
             }
             created_rotors.push_back(rotor);
         }
+    }
+
+    if (num_of_rotors > 0) {
+        connect_rotors(created_rotors);
     }
 
     *enigma = new Enigma(plugboard, reflector, created_rotors, num_of_rotors);
