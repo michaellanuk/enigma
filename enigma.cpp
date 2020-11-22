@@ -161,7 +161,7 @@ void Enigma::encrypt_character(char &c) {
 
     letter_as_num = plugboard->map_letter(letter_as_num);
 
-    // rotate the right-most rotor
+    // rotate only the right-most rotor
     if (number_of_rotors > 0) {
         created_rotors[number_of_rotors - 1]->rotate();
     }
@@ -176,7 +176,7 @@ void Enigma::encrypt_character(char &c) {
         letter_as_num = (created_rotors[i])->map_backwards(letter_as_num);
     }
 
-    letter_as_num = plugboard->map_letter(letter_as_num); // goes through plugboard again
+    letter_as_num = plugboard->map_letter(letter_as_num); // map through plugboard again
 
     c = convert_int_to_char(letter_as_num);
 }

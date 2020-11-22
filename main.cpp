@@ -7,6 +7,8 @@
 #include "errors.h"
 #include "constants.h"
 
+using namespace std;
+
 int main(int argc, char** argv) {
     Enigma* enigma = nullptr;
     string message, message_wo_ws;
