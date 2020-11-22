@@ -28,7 +28,7 @@ int Rotor::new_rotor(string rotors_config_file, int starting_pos, Rotor** rotor)
         input >> num >> ws;
         
         if (input.fail()) {
-            cerr << "Non-numeric character encountered in rotor configuration file" << endl;
+            cerr << "Non-numeric character for mapping in rotor file rotor.rot" << endl;
             return NON_NUMERIC_CHARACTER;
         }
         
@@ -48,11 +48,16 @@ int Rotor::new_rotor(string rotors_config_file, int starting_pos, Rotor** rotor)
         for (int i = 0; i < mappings.size() - 1; i++) {
             for (int j = i + 1; j < mappings.size(); j++) {
                 if (mappings[i] == mappings[j]) {
-                    cerr << "One or more letters has not been mapped or has been multiple times in rotor configuration file" << endl;
+                    cerr << "Invalid mapping in rotor file rotor.rot" << endl;
                     return INVALID_ROTOR_MAPPING;
                 }
             }
         }        
+    }
+
+    if (mappings.size() < 26) {
+        cerr << "Not all inputs mapped in rotor file rotor.rot" << endl;
+        return INVALID_ROTOR_MAPPING;
     }
     
     input.close();

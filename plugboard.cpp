@@ -26,12 +26,12 @@ int Plugboard::new_plugboard(string plugboard_config_file, Plugboard** plugboard
         input >> num >> ws;
         
         if (input.fail()) {
-            cerr << "Non-numeric character encountered in plugboard file" << endl;
+            cerr << "Non-numeric character in plugboard file plugboard.pb" << endl;
             return NON_NUMERIC_CHARACTER;
         }
         
         if (num < 0 || num > 25) {
-            cerr << "Out-of-range number encountered in plugboard file" << endl;
+            cerr << "Out-of-range number encountered in plugboard file plugboard.pb" << endl;
             return INVALID_INDEX;
         }
 
@@ -42,7 +42,7 @@ int Plugboard::new_plugboard(string plugboard_config_file, Plugboard** plugboard
         for (int i = 0; i < indexes.size() - 1; i++) {
             for (int j = i + 1; j < indexes.size(); j++) {
                 if (indexes[i] == indexes[j]) {
-                    cerr << "One or more contacts is connected multiple times or with itself in plugboard file" << endl;
+                    cerr << "Incorrect number of parameters in plugboard file plugboard.pb" << endl;
                     return IMPOSSIBLE_PLUGBOARD_CONFIGURATION;
                 }
             }
@@ -50,7 +50,7 @@ int Plugboard::new_plugboard(string plugboard_config_file, Plugboard** plugboard
     }
 
     if (indexes.size() % 2 == 1) {
-        cerr << "Odd number of contacts in plugboard file" << endl;
+        cerr << "Incorrect number of parameters in plugboard file plugboard.pb" << endl;
         return INCORRECT_NUMBER_OF_PLUGBOARD_PARAMETERS;
     }
 

@@ -26,7 +26,7 @@ int Reflector::new_reflector(string reflector_config_file, Reflector** reflector
         input >> num >> ws;
         
         if (input.fail()) {
-            cerr << "Non-numeric character encountered in reflector file" << endl;
+            cerr << "Non-numeric character in reflector file reflector.rf" << endl;
             return NON_NUMERIC_CHARACTER;
         }
         
@@ -42,7 +42,7 @@ int Reflector::new_reflector(string reflector_config_file, Reflector** reflector
         for (int i = 0; i < mappings.size() - 1; i++) {
             for (int j = i + 1; j < mappings.size(); j++) {
                 if (mappings[i] == mappings[j]) {
-                    cerr << "One or more numbers is mapped multiple times or with itself in reflector file" << endl;
+                    cerr << "Incorrect (odd) number of parameters in reflector file reflector.rf" << endl;
                     return INVALID_REFLECTOR_MAPPING;
                 }
             }
@@ -50,7 +50,7 @@ int Reflector::new_reflector(string reflector_config_file, Reflector** reflector
     }
 
     if (mappings.size() != 26) {
-        cerr << "Reflector file does not contain 13 pairs of numbers" << endl;
+        cerr << "Insufficient number of mappings in reflector file: reflector.rf" << endl;
         return INCORRECT_NUMBER_OF_REFLECTOR_PARAMETERS;
     }
 

@@ -31,7 +31,7 @@ int Enigma::create_enigma_machine(int argc, char** argv, Enigma** enigma) {
     vector<Rotor*> created_rotors;
     
     if (argc < 3 || argc == 4) {
-        cerr << "Not enough parameters were passed to the command line" << endl;
+        cerr << "usage: enigma plugboard-file reflector-file (<rotor-file>)* rotor-positions" << endl;
         return INSUFFICIENT_NUMBER_OF_PARAMETERS;
     }
 
@@ -99,12 +99,12 @@ vector<int> Enigma::get_rotor_starting_positions(string starting_pos_file) {
         input >> pos >> ws;
 
         if (input.fail()) {
-            cerr << "Non-numeric encountered in rotor.pos file" << endl;
+            cerr << "Non-numeric character in rotor positions file rotor.pos" << endl;
             exit(NON_NUMERIC_CHARACTER);
         }
 
         if (pos < 0 || pos > 25) {
-            cerr << "Out-of-range number encountered in rotor.pos file" << endl;
+            cerr << "Out-of-range number encountered in rotor positions file rotor.pos" << endl;
             exit(INVALID_INDEX);
         }
 
