@@ -30,7 +30,7 @@ int Enigma::create_enigma_machine(int argc, char** argv, Enigma** enigma) {
     vector<int> rotor_starting_positions;
     vector<Rotor*> created_rotors;
     
-    if (argc < 3 || argc == 4) {
+    if (argc < 3) {
         cerr << "usage: enigma plugboard-file reflector-file (<rotor-file>)* rotor-positions" << endl;
         return INSUFFICIENT_NUMBER_OF_PARAMETERS;
     }
