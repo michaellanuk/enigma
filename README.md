@@ -15,4 +15,6 @@ Provide configuration files for the plugboard, reflector, and (optional) rotor(s
 
 ```
 $ ./enigma plugboards/I.pb reflectors/I.rf rotors/I.rot rotors/II.rot rotors/I.pos
+Enter message:
+HELLO WORLD
 ```
