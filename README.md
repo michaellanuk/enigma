@@ -5,7 +5,7 @@ Enigma is the common name for the coding machine used by German forces in the Se
 
 The program utilises an invertible function, thus to decrypt a message one only needs to type the encrypted ciphertext into an identically configured Enigma machine and then read the plaintext off the output board.
 
-Usage:
+## Usage:
 
 ```
 $ make enigma
