@@ -9,7 +9,7 @@ The program utilises an invertible function, thus to decrypt a message one only 
 
 Compile with `make`.
 
-Provide command line with configuration files for the plugboard, reflector, and (optional) rotor(s)
+Provide command line with configuration files for the plugboard, reflector, (optional) rotor(s), and (optional) rotor starting positions.
 
 e.g. for a machine with 2 rotors:
 
