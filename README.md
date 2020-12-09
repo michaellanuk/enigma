@@ -7,11 +7,11 @@ The program utilises an invertible function, thus to decrypt a message one only 
 
 ## Usage:
 
-```
-$ make enigma
-```
+Compile with `make`.
 
-Provide configuration files for the plugboard, reflector, and (optional) rotor(s), e.g. for a machine with 2 rotors:
+Provide command line with configuration files for the plugboard, reflector, and (optional) rotor(s)
+
+e.g. for a machine with 2 rotors:
 
 ```
 $ ./enigma plugboards/I.pb reflectors/I.rf rotors/I.rot rotors/II.rot rotors/I.pos
