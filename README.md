@@ -14,7 +14,7 @@ Provide command line with configuration files for the plugboard, reflector, (opt
 e.g. for a machine with 2 rotors:
 
 ```
-$ ./enigma plugboards/I.pb reflectors/I.rf rotors/I.rot rotors/II.rot rotors/I.pos
+./enigma plugboards/I.pb reflectors/I.rf rotors/I.rot rotors/II.rot rotors/I.pos
 Enter message:
 HELLO WORLD
 ```
